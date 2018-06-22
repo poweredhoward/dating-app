@@ -39,7 +39,7 @@ app.post("/api/friends", (req,res)=>{
 
     
     for(var i=0 ; i<friends.length ; i++){
-        var difference = 0;
+        var difference = 0;  
         for(var j=0 ; j<friends[i].scores.length ; j++){
             difference += Math.abs(friends[i].scores[j] - newperson.scores[j]);
             // console.log("Difference: " + difference);
