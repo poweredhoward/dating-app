@@ -11,7 +11,10 @@ var PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use("/images",express.static("public/images"));
+//app.use("/images",express.static("public/images"));
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
+
+//Use postimages.org
 
 
 require("./routing/apiRoutes")(app);
