@@ -55,7 +55,7 @@
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
-        <div class="modal-content">
+        <div class="modal-content" id="modal-content">
             <span id="close">&times;</span>
             <p id="modaltext"></p>
         </div>
@@ -214,18 +214,23 @@
                 }
                 console.log(friend);
                 $.post("/api/friends", {friend: friend}, function(res){
+                    var img = $("<img>");
+                    img.attr("src", res.photo);
+                    $("#modal-content").append(img);
                     console.log(res);
                     $("#myModal").css("display", "block");
                     $("#modaltext").text(
                         "You matched with " +
                         res.name 
-                    )
+                    );
+                    
                 });
 
             });
 
             $("#close").click(function(){
                 $("#myModal").css("display", "none");
+                
             })
 
         });
